@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION['isAdmin'])){
+if(!isset($_SESSION['login'])){
     header('Location: ' . site_url('users/login'));
 }
 ?>
@@ -43,7 +43,6 @@ if(!isset($_SESSION['isAdmin'])){
         elseif($action === 'failed'){
             echo '<p>This author has active posts. Please delete posts from this author before deleting author.</p>';
         }
-        session_unset();
         ?>
     </div>
 </div>
