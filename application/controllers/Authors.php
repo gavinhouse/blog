@@ -76,7 +76,7 @@ class Authors extends Father
         }
     }
 
-    public function test2() {
+    public function feature() {
         die('test2');
     }
 }
