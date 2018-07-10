@@ -3,22 +3,32 @@
  * The navigation file contains functions that aid the navbar
  *
  * @property CI_Loader $load
+ * @property Icon $icon
  */
 class Navigation{
 
+    public function __construct()
+    {
+        $this->CI =& get_instance();
+        $this->CI->load->library('Icon','icon');
+    }
 
-    public function link($pageName, $directory){
+    public function link($pageName, $directory, $iconName){
+        //Check to see if link corresponds to current page
         if($this->isActive($directory)){
             $active = ' active';
         }
         else{
             $active = FALSE;
         }
-        $directory = site_url($directory);
+
+        $directory = site_url($directory); //Get URL for link
+
+        $icon = $this->CI->icon->get($iconName); //Get link icon
 
         return <<<HTML
 <li class="nav-item{$active}">
-    <a class="nav-link" href="{$directory}">{$pageName}</a>
+    <a class="nav-link" href="{$directory}">{$icon} {$pageName}</a>
 </li>
 HTML;
     }
