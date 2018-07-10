@@ -13,6 +13,9 @@ class Icon{
             case 'post':
                 return '<i class="fas fa-book-open"></i>';
                 break;
+            case 'users':
+                return '<i class="fas fa-users"></i>';
+                break;
         }
     }
 

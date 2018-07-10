@@ -9,6 +9,7 @@
 
             <?= $this->navigation->link('Posts', 'posts/index','post'); ?>
             <?= $this->navigation->link('Authors', 'authors/index','pen'); ?>
+            <?= $this->navigation->link("Users", 'users/login', 'users'); ?>
 
         </ul>
     </div>

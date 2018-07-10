@@ -36,7 +36,7 @@ class Navigation{
     private function isActive($name){
         $controller = $this->CI->router->fetch_class();
 
-        return ($controller === $name) || ($controller == 'users' && $name === 'authors');
+        return $controller === $name;
     }
 
 }
