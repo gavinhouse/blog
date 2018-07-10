@@ -6,7 +6,7 @@
  */
 class Navigation{
 
-    public function navbarLink($pageName, $directory){
+    public function link($pageName, $directory){
         if($this->isActive($directory)){
             $active = ' active';
         }
