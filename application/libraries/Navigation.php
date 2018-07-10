@@ -15,7 +15,7 @@ class Navigation{
 
     public function link($name, $link, $iconName){
         //Check to see if link corresponds to current page
-        if($this->isActive(strtolower($name))){
+        if($this->isActive(explode('/',$link))){
             $active = 'active';
         }
         else{
@@ -33,10 +33,11 @@ class Navigation{
 
     }
 
-    private function isActive($name){
+    private function isActive($link){
         $controller = $this->CI->router->fetch_class();
+        $method = $this->CI->router->fetch_method();
 
-        return $controller === $name;
+        return $controller === $link[0] && $method === $link[1];
     }
 
 }
