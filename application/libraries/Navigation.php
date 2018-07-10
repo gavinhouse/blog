@@ -16,7 +16,7 @@ class Navigation{
     public function link($pageName, $directory, $iconName){
         //Check to see if link corresponds to current page
         if($this->isActive($directory)){
-            $active = ' active';
+            $active = 'active';
         }
         else{
             $active = FALSE;
@@ -26,11 +26,11 @@ class Navigation{
 
         $icon = $this->CI->icon->get($iconName); //Get link icon
 
-        return <<<HTML
-<li class="nav-item{$active}">
-    <a class="nav-link" href="{$directory}">{$icon} {$pageName}</a>
-</li>
-HTML;
+        $format = '<li class="nav-item %s">';
+        $format .= '<a class="nav-link" href="%s">%s %s</a>';
+        $format .= '</li>';
+        return sprintf($format, $active, $directory, $icon, $pageName);
+
     }
 
     private function isActive($directory){
