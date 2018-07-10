@@ -75,8 +75,4 @@ class Authors extends Father
 
         }
     }
-
-    public function feature() {
-        die('test2');
-    }
 }
