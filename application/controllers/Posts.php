@@ -3,6 +3,7 @@
  * The Posts controller contains functions that maintain the posts section
  */
 require('Father.php');
+session_start();
 class Posts extends Father{
 
     //Display post index page
@@ -12,6 +13,8 @@ class Posts extends Father{
         $this->layout->set('authors', $this->authors_model->getAuthors());
         $this->layout->set('posts', $this->posts_model->getPosts());
         $this->layout->set('action', $action);
+
+        session_unset();
 
         $this->layout->load('index','posts');
     }

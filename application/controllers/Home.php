@@ -12,5 +12,6 @@ class Home extends Father{
         $this->layout->set('page_title','Home Page');
         $this->layout->load('index','home');
 
+        session_unset();
     }
 }
