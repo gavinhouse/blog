@@ -7,8 +7,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
-            <?= $this->navigation->link('Posts Table', 'posts/index','post'); ?>
-            <?= $this->navigation->link('Authors Table', 'authors/index','pen'); ?>
+            <?= $this->navigation->link('Posts', 'posts/index','post'); ?>
+            <?= $this->navigation->link('Authors', 'authors/index','pen'); ?>
 
         </ul>
     </div>
