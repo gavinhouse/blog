@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION['isAdmin'])){
+if(!isset($_SESSION['login'])){
     header('Location: ' . site_url('users/login'));
 }
 ?>

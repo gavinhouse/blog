@@ -1,4 +1,10 @@
-<?= $author_name = '' ?>
+<?php
+$author_name = '';
+
+if(!isset($_SESSION['login'])){
+    header('Location: ' . site_url('users/login'));
+}
+?>
 
 <div id="content">
     <a class="back-link" href="<?php echo site_url('authors/index'); ?>">Back to Author List</a>
