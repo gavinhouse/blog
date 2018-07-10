@@ -1,8 +1,3 @@
-<?php
-if(!isset($_SESSION['login'])){
-    header('Location: ' . site_url('users/login'));
-}
-?>
 <div id="content">
     <div class="author listing">
 

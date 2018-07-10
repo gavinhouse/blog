@@ -1,9 +1,5 @@
 <?php
 $author_name = '';
-
-if(!isset($_SESSION['login'])){
-    header('Location: ' . site_url('users/login'));
-}
 ?>
 
 <div id="content">

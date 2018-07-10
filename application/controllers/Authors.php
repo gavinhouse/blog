@@ -16,19 +16,23 @@ class Authors extends Father
         $this->layout->set('authors', $this->authors_model->getAuthors());
         $this->layout->set('action', $action);
 
-
+        $this->checkLogin();
 
         $this->layout->load('index','authors');
     }
 
     //Wrapper for validateCreation
     public function create(){
+        $this->checkLogin();
+
         $this->creationForm();
     }
 
     //Wrapper for validateDeletion.
     //ID specifies the ID of the author slated for deletion.
     public function delete($id){
+        $this->checkLogin();
+
         $this->deletionForm($id);
     }
 
@@ -73,6 +77,12 @@ class Authors extends Father
                 $this->index('failed'); //Tells index that the author wasn't deleted.
             }
 
+        }
+    }
+
+    private function checkLogin(){
+        if(!isset($_SESSION['login'])){
+            header('Location: ' . site_url('users/login'));
         }
     }
 }
