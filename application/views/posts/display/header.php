@@ -29,12 +29,8 @@
 
 </style>
 
-
-
-
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #62FDCE";>
-      <!-- Get code for shared navbar. Line above is kept locally to change color. -->
-      <?php include('C:\Apache24\htdocs\frameworkPractise\application\views\shared\navbar.php'); ?>
+    <!-- Get code for shared navbar. -->
+    <?php $this->load->view('shared/navbar', ['style' => 'background-color: #62FDCE']) ; ?>
 
       <div id="content">
           <h2>Posts</h2>

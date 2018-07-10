@@ -13,8 +13,8 @@
     }
 </style>
 
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #CCEEFF";>
+    <!-- Get code for shared navbar. -->
+    <?php $this->load->view('shared/navbar', ['style' => 'background-color: #CCEEFF']) ; ?>
 
-      <!-- Get code for shared navbar. Line above is kept locally to change color. -->
-      <?php include('C:\Apache24\htdocs\frameworkPractise\application\views\shared\navbar.php'); ?>
+
 
