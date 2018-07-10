@@ -13,8 +13,6 @@ class Icon{
             case 'post':
                 return '<i class="fas fa-book-open"></i>';
                 break;
-            default:
-                break;
         }
     }
 

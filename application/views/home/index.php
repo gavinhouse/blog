@@ -13,7 +13,7 @@
             </div>
             <div class="column" style="float: left; position: relative; left: 30px">
                 <h7>Author Table:</h7>
-                <a href="<?php echo site_url('/authors/login');?>"><img src="<?php echo base_url('images/author.jpg')?>" alt="author" style="width:70.5%"></a>
+                <a href="<?php echo site_url('/users/login');?>"><img src="<?php echo base_url('images/author.jpg')?>" alt="author" style="width:70.5%"></a>
             </div>
         </div>
     </div>
