@@ -17,3 +17,6 @@
     html, body {
       min-height: 100%;
     }
+    navbar .active{
+      background-color: blue;
+    }
