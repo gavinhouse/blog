@@ -14,8 +14,6 @@ class Posts extends Father{
         $this->layout->set('posts', $this->posts_model->getPosts());
         $this->layout->set('action', $action);
 
-        session_unset();
-
         $this->layout->load('index','posts');
     }
 
