@@ -12,7 +12,7 @@ $password2 = '';
 
         <dl>
             <dt>Username</dt>
-            <dd><input type="text" name="username" value="<?php echo $username; ?>"</dd>
+            <dd><input type="text" name="username" autocomplete="off" value="<?php echo $username; ?>"</dd>
             <?php
             if($_SESSION['username_exists']){
 
@@ -22,7 +22,7 @@ $password2 = '';
         </dl>
         <dl>
             <dt>Display Name</dt>
-            <dd><input type="text" name="displayName" value="<?= $displayName ?>" </dd>
+            <dd><input type="text" name="displayName" autocomplete="off" value="<?= $displayName ?>" </dd>
         </dl>
         <dl>
             <dt>Password</dt>

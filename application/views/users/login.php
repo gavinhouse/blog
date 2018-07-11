@@ -11,7 +11,7 @@ $password = '';
 
         <dl>
             <dt>Username</dt>
-            <dd><input type="text" name="username" value="<?php echo $username; ?>"</dd>
+            <dd><input type="text" name="username" autocomplete="off" value="<?php echo $username; ?>"</dd>
         </dl>
         <dl>
             <dt>Password</dt>
