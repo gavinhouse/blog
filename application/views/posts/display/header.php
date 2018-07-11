@@ -6,9 +6,6 @@
 
 <style>
     #content {
-        padding-left: 50px;
-        padding-right: 50px;
-        padding-bottom: 40px;
         background-color: #CFFEF0;
     }
     div.footer {
