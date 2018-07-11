@@ -5,7 +5,6 @@
             <thead class="thead-dark">
             <tr>
                 <th>Username</th>
-                <th>Display Name</th>
                 <?php
                 if($_SESSION['username'] === 'admin'){
                     echo '<th> </th>';
@@ -17,7 +16,6 @@
             <?php foreach($users as $user){ ?>
                 <tr>
                     <td><?= $user['username']?></td>
-                    <td><?= $user['displayName'];?></td>
                     <?php if($_SESSION['username'] === 'admin'){ ?>
                         <td><a class="action" href="<?php echo site_url('users/delete/'.$user['username']); ?>">Delete</a></td>
                     <?php } ?>
