@@ -16,7 +16,7 @@ class Authors extends Father
         $this->layout->set('authors', $this->authors_model->getAuthors());
         $this->layout->set('action', $action);
 
-        $this->checkLogin();
+        parent::checkLogin();
 
         $this->layout->load('index','authors');
     }
@@ -80,9 +80,5 @@ class Authors extends Father
         }
     }
 
-    private function checkLogin(){
-        if(!isset($_SESSION['login'])){
-            header('Location: ' . site_url('users/login'));
-        }
-    }
+
 }

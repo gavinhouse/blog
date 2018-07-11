@@ -1,1 +1,36 @@
-<?php
+<div id="content">
+    <div class="users listing">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>Username</th>
+                <th>Display Name</th>
+                <?php
+                if($_SESSION['isAdmin']){
+                    echo '<th> </th>';
+                }
+                ?>
+            </tr>
+            </thead>
+
+            <?php foreach($users as $user){ ?>
+                <tr>
+                    <td><?= $user['username']?></td>
+                    <td><?= $user['displayName'];?></td>
+                    <?php if($_SESSION['isAdmin']){ ?>
+                        <td><a class="action" href="<?php echo site_url('users/delete/'.$user['username']); ?>">Delete</a></td>
+                    <?php } ?>
+                </tr>
+            <?php } ?>
+        </table>
+        <?php
+        if($action === 'delete'){
+            echo '<p>Author deleted successfully!</p>';
+        }
+        elseif($action === 'failed'){
+            echo '<p>This author has active posts. Please delete posts from this author before deleting author.</p>';
+        }
+        ?>
+
+    </div>
+</div>

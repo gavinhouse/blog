@@ -31,5 +31,11 @@ class Father extends CI_Controller{
         $_SESSION['login'] = TRUE; //Resets the session value for login so that error message is removed.
     }
 
+    public function checkLogin(){
+        if(!isset($_SESSION['login'])){
+            header('Location: ' . site_url('users/login'));
+        }
+    }
+
 
 }

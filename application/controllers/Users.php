@@ -20,6 +20,15 @@ class Users extends Father{
         $this->loginForm();
     }
 
+    public function index($action = FALSE){
+        $this->layout->set('page_title','Users');
+        $this->layout->set('users',$this->users_model->getEntries(FALSE,'users'));
+        $this->layout->set('action',$action);
+
+        parent::checkLogin();
+
+        $this->layout->load('index','users');
+    }
     //Function returns a boolean which states whether or not a given username exists
     private function usernameExists($username)
     {
