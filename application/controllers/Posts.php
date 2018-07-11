@@ -37,19 +37,17 @@ class Posts extends Father{
     //Creates a new post
     private function creationForm(){
 
-        $this->form_validation->set_rules('author_id', 'Author Name', 'required');
         $this->form_validation->set_rules('title', 'Post Title', 'required');
         $this->form_validation->set_rules('content', 'Post Content', 'required');
 
         if($this->form_validation->run() === FALSE){
 
             $this->layout->set('page_title','Add Post');
-            $this->layout->set('authors', $this->authors_model->getAuthors());
 
             $this->layout->load('create','posts');
         }
         else{
-            $authorID = $this->input->post('author_id');
+            $authorID = $_SESSION['username'];
             $title = $this->input->post('title');
             $content = $this->input->post('content');
 
@@ -78,7 +76,6 @@ class Posts extends Father{
     //Allows user to edit fields in a specified post
     private function editForm($id){
 
-        $this->form_validation->set_rules('author_id', 'Author Name', 'required');
         $this->form_validation->set_rules('title', 'Post Title', 'required');
         $this->form_validation->set_rules('content', 'Post Content', 'required');
 
@@ -86,13 +83,12 @@ class Posts extends Father{
         if($this->form_validation->run() === FALSE){
 
             $this->layout->set('page_title','Edit Post');
-            $this->layout->set('authors', $this->authors_model->getAuthors());
             $this->layout->set('post',$this->posts_model->getPost($id));
 
             $this->layout->load('edit','posts');
         }
         else{
-            $authorID = $this->input->post('author_id');
+            $authorID = $_SESSION['username'];
             $title = $this->input->post('title');
             $content = $this->input->post('content');
 

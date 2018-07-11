@@ -7,11 +7,11 @@ class PostsModel extends MasterModel
 {
 
     //Adds a post to the posts table
-    public function addPost($authorID,$title,$content)
+    public function addPost($authorName, $title, $content)
     {
 
         $data = array(
-            'author_id' => $authorID,
+            'authorName' => $authorName,
             'title' => $title,
             'content' => $content
         );
