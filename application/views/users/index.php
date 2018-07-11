@@ -7,7 +7,7 @@
                 <th>Username</th>
                 <th>Display Name</th>
                 <?php
-                if($_SESSION['isAdmin']){
+                if($_SESSION['username'] === 'admin'){
                     echo '<th> </th>';
                 }
                 ?>
@@ -18,7 +18,7 @@
                 <tr>
                     <td><?= $user['username']?></td>
                     <td><?= $user['displayName'];?></td>
-                    <?php if($_SESSION['isAdmin']){ ?>
+                    <?php if($_SESSION['username'] === 'admin'){ ?>
                         <td><a class="action" href="<?php echo site_url('users/delete/'.$user['username']); ?>">Delete</a></td>
                     <?php } ?>
                 </tr>

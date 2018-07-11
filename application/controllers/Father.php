@@ -32,7 +32,7 @@ class Father extends CI_Controller{
     }
 
     public function checkLogin(){
-        if(!isset($_SESSION['login'])){
+        if(!isset($_SESSION['username'])){
             header('Location: ' . site_url('users/login'));
         }
     }
