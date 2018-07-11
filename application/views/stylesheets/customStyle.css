@@ -5,12 +5,7 @@
       text-align: center;
 
     }
-    #main-menu {
-      margin: auto;
-      width: 50%;
-      border: 3px solid green;
-      padding: 10px;
-    }
+
     div.footer {
       right: 0;
       bottom: 0;
