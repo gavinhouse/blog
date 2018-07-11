@@ -6,6 +6,16 @@ session_start();
 require('Father.php');
 class Users extends Father{
 
+    public function index($action = FALSE){
+        $this->layout->set('page_title','Users');
+        $this->layout->set('users',$this->users_model->getEntries(FALSE,'users'));
+        $this->layout->set('action',$action);
+
+        parent::checkLogin();
+
+        $this->layout->load('index','users');
+    }
+
     //Wrapper for validateCreation
     public function create(){
         $this->creationForm();
@@ -20,15 +30,12 @@ class Users extends Father{
         $this->loginForm();
     }
 
-    public function index($action = FALSE){
-        $this->layout->set('page_title','Users');
-        $this->layout->set('users',$this->users_model->getEntries(FALSE,'users'));
-        $this->layout->set('action',$action);
-
+    public function delete($username){
         parent::checkLogin();
 
-        $this->layout->load('index','users');
+        $this->deletionForm($username);
     }
+
     //Function returns a boolean which states whether or not a given username exists
     private function usernameExists($username)
     {
@@ -136,6 +143,29 @@ class Users extends Father{
                 $_SESSION['login'] = FALSE;
 
                 header('Refresh: 0');
+            }
+
+        }
+    }
+
+    private function deletionForm($username){
+
+        $this->form_validation->set_rules('commit', 'Delete User','required');
+
+        if($this->form_validation->run() === FALSE){
+
+            $this->layout->set('page_title','Delete User');
+            $this->layout->set('user',$this->users_model->getUser($username));
+
+            $this->layout->load('delete','users');
+        }
+        else{
+
+            if($this->users_model->deleteUser($username)){
+                $this->index('delete'); //Tells index that the author has been deleted
+            }
+            else{
+                $this->index('failed'); //Tells index that the author wasn't deleted.
             }
 
         }

@@ -28,4 +28,15 @@ class UsersModel extends MasterModel{
 
         return password_verify($password,$user['password']);
     }
+
+    public function deleteUser($username){
+
+        if($this->db->delete('users',array('username' => $username))){
+            return TRUE;
+        }
+        else{
+            echo "Failed to delete";
+            exit;
+        }
+    }
 }

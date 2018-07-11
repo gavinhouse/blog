@@ -26,10 +26,10 @@
         </table>
         <?php
         if($action === 'delete'){
-            echo '<p>Author deleted successfully!</p>';
+            echo '<p>User deleted successfully!</p>';
         }
         elseif($action === 'failed'){
-            echo '<p>This author has active posts. Please delete posts from this author before deleting author.</p>';
+            echo '<p>This user has active posts. Please delete posts from this author before deleting author.</p>';
         }
         ?>
 
