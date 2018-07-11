@@ -40,6 +40,7 @@ class Users extends Father{
     private function creationForm(){
 
         $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('displayName', 'Display Name', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('password_reenter', 'Password re-entry', 'required');
 
@@ -53,6 +54,7 @@ class Users extends Father{
         }
         else {
             $username = $this->input->post('username');
+            $displayName = $this->input->post('displayName');
             $password = $this->input->post('password');
             $password_reenter = $this->input->post('password_reenter');
 
@@ -61,7 +63,7 @@ class Users extends Father{
                 $_SESSION['username_exists'] = FALSE; //Tell session not to display a message that the username is taken
                 if($password === $password_reenter){
 
-                    $this->users_model->addUser($username, $password);
+                    $this->users_model->addUser($username, $displayName, $password);
                     $_SESSION['reenter_valid'] = TRUE; //Tells session that password and password re-entry match
 
                     header('Location: ' . site_url('users/login'));

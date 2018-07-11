@@ -1,4 +1,5 @@
-<?= $username = '';
+<?php $username = '';
+$displayName = '';
 $password1 = '';
 $password2 = '';
 ?>
@@ -18,6 +19,10 @@ $password2 = '';
                 echo 'This username already exists. Please choose a new username.';
             }
             ?>
+        </dl>
+        <dl>
+            <dt>Display Name</dt>
+            <dd><input type="text" name="displayName" value="<?= $displayName ?>" </dd>
         </dl>
         <dl>
             <dt>Password</dt>
