@@ -1,4 +1,5 @@
 <div id="content">
+    <h1>Users</h1>
     <div class="users listing">
         <table class="table table-striped">
             <thead class="thead-dark">
