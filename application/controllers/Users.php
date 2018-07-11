@@ -124,23 +124,13 @@ class Users extends Father{
             //Login function returns true if username and password combination match a user.
             if ($this->users_model->login($username, $password)){
 
-                if($username === 'admin'){
-
-                    $_SESSION['login'] = TRUE; //Tells session that login was successful
-                    $_SESSION['isAdmin'] = TRUE; //Used in the index page to determine if user has the ability to delete authors.
-                    header('Location: ' . site_url('authors/index'));
-                }
-                else{
-
-                    $_SESSION['login'] = TRUE; //Tells session that login was successful
-                    $_SESSION['isAdmin'] = FALSE;
-                    header('Location: ' . site_url('authors/index'));
-                }
+                $_SESSION['username'] = $username; //Tells session that login was successful
+                header('Location: ' . site_url('posts/index'));
 
             }
             //If login not successful, reload the page and display an error message
             else{
-                $_SESSION['login'] = FALSE;
+                $_SESSION['username'] = FALSE;
 
                 header('Refresh: 0');
             }
