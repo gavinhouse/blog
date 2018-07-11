@@ -13,7 +13,3 @@
         </ul>
     </div>
 </nav>
-
-<div id="content">
-    <br />
-</div>
