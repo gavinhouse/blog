@@ -10,6 +10,7 @@
  * @property CI_Form_Validation form_validation
  * @property CI_Input $input
  * @property Navigation $navigation
+ * @property PostEntry $postentry
  */
 class Father extends CI_Controller{
 
@@ -24,6 +25,7 @@ class Father extends CI_Controller{
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->library('Navigation');
+        $this->load->library('PostEntry');
     }
 
     //Sets values in session to default states.

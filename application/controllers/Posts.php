@@ -1,23 +1,16 @@
 <?php
-/*
+/**
  * The Posts controller contains functions that maintain the posts section
  */
 require('Father.php');
 session_start();
 class Posts extends Father{
 
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->library('postEntry','post_entry');
-    }
-
     //Display post index page
     public function index($action = FALSE){
 
         $this->layout->set('page_title','Post List');
-        $refinedPosts = $this->post_entry->refinePosts($this->posts_model->getPosts());
+        $refinedPosts = $this->postentry->refinePosts($this->posts_model->getPosts());
         $this->layout->set('posts', $refinedPosts);
         $this->layout->set('action', $action);
 

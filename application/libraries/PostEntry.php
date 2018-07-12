@@ -1,6 +1,6 @@
 <?php
 
-class postEntry{
+class PostEntry{
 
 
     public function refinePosts($posts){
@@ -9,7 +9,7 @@ class postEntry{
             $tempArray = [
                 'author' => $post['authorName'],
                 'title' => $post['title'],
-                'content' => $post['content'],
+                'content' => $this->truncate($post['content']),
                 'date' => $post['date'],
                 'imageName' => $post['imageName']
             ];

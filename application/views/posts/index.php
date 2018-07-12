@@ -13,7 +13,7 @@
 
         <?php
         foreach ($posts as $post){
-            $this->load->view('posts/display/entry');
+            $this->load->view('posts/display/entry',$post);
         }
 
         ?>
