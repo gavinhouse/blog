@@ -6,12 +6,19 @@ require('Father.php');
 session_start();
 class Posts extends Father{
 
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('postEntry','post_entry');
+    }
+
     //Display post index page
     public function index($action = FALSE){
 
         $this->layout->set('page_title','Post List');
-        $this->layout->set('authors', $this->authors_model->getAuthors());
-        $this->layout->set('posts', $this->posts_model->getPosts());
+        $refinedPosts = $this->post_entry->refinePosts($this->posts_model->getPosts());
+        $this->layout->set('posts', $refinedPosts);
         $this->layout->set('action', $action);
 
         $this->layout->load('index','posts');
