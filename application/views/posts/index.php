@@ -1,7 +1,7 @@
 <style>
     .post-listing{
-        padding-left: 25%;
-        padding-right: 25%;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 </style>
 <div id="content">

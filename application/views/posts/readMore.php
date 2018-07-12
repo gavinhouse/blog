@@ -14,7 +14,6 @@
             foreach(explode("\n", $post['content']) as $paragraph){
                 echo '<p>' . $paragraph . '</p>';
             }
-
             ?>
         </div>
     </div>

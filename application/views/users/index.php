@@ -1,6 +1,5 @@
 <div id="content">
-    <h1>Users</h1>
-    <div class="users listing">
+    <div class="users listing" style="padding-left: 30%; padding-right: 30%;">
         <table class="table table-striped">
             <thead class="thead-dark">
             <tr>
