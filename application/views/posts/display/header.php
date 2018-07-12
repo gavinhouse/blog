@@ -32,6 +32,3 @@
     <!-- Get code for shared navbar. -->
     <?php $this->load->view('shared/navbar', ['style' => 'background-color: #62FDCE']) ; ?>
 
-      <div id="content">
-          <h2>Posts</h2>
-      </div>

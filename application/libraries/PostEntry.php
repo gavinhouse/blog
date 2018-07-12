@@ -7,6 +7,7 @@ class PostEntry{
         $refinedPosts = [];
         foreach($posts as $post){
             $tempArray = [
+                'id' => $post['id'],
                 'author' => $post['authorName'],
                 'title' => $post['title'],
                 'content' => $this->truncate($post['content']),

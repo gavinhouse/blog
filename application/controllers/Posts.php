@@ -6,6 +6,7 @@ require('Father.php');
 session_start();
 class Posts extends Father{
 
+
     //Display post index page
     public function index($action = FALSE){
 
@@ -15,6 +16,17 @@ class Posts extends Father{
         $this->layout->set('action', $action);
 
         $this->layout->load('index','posts');
+    }
+
+    public function readMore(){
+
+        $id = $this->uri->segment(3);
+
+        $this->layout->set('page_title', $this->posts_model->getPost($id)['title']);
+        $this->layout->set('post', $this->posts_model->getPost($id));
+
+        $this->layout->load('readMore','posts');
+
     }
 
     //Wrapper for validateCreation
@@ -52,15 +64,7 @@ class Posts extends Father{
             $content = $this->input->post('content');
             $date = $this->formatDate(getdate());
 
-            //This section is for file upload
-            $config['upload_path']          = './images/uploads/';
-            $config['allowed_types']        = 'gif|jpg|png';
-
-
-            $this->load->library('upload', $config);
-            $this->upload->do_upload();
-            $fileName = $this->upload->data('file_name');
-            //End file upload
+            $fileName = $this->uploadFile();
 
             if(!$this->posts_model->addPost($authorID,$title,$content, $date, $fileName))
             {
@@ -121,5 +125,14 @@ class Posts extends Father{
         return $date['month'] . ' ' . $date['mday'] . ', ' . $date['year'];
     }
 
+    private function uploadFile(){
+        $config['upload_path']          = './images/uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+
+
+        $this->load->library('upload', $config);
+        $this->upload->do_upload();
+        return $this->upload->data('file_name');
+    }
 
 }
