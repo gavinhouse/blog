@@ -15,7 +15,7 @@
 
             <?php foreach($users as $user){ ?>
                 <tr>
-                    <td><?= $user['username']?></td>
+                    <td><a href="<?= site_url('/posts/index/' . $user['username'])?>"><?= $user['username']?></a></td>
                     <?php if($_SESSION['username'] === 'admin'){ ?>
                         <td><a class="action" href="<?php echo site_url('users/delete/'.$user['username']); ?>">Delete</a></td>
                     <?php } ?>
