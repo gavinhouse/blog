@@ -7,8 +7,13 @@ require('Father.php');
 class Users extends Father{
 
     public function index($action = FALSE){
+
+        //remove admin user from view
+        $users = $this->users_model->getEntries(FALSE,'users');
+        unset($users[0]);
+
         $this->layout->set('page_title','Users');
-        $this->layout->set('users',$this->users_model->getEntries(FALSE,'users'));
+        $this->layout->set('users', $users);
         $this->layout->set('action',$action);
 
         parent::checkLogin();
