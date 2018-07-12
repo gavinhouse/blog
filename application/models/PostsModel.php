@@ -7,13 +7,14 @@ class PostsModel extends MasterModel
 {
 
     //Adds a post to the posts table
-    public function addPost($authorName, $title, $content)
+    public function addPost($authorName, $title, $content, $date)
     {
 
         $data = array(
             'authorName' => $authorName,
             'title' => $title,
-            'content' => $content
+            'content' => $content,
+            'date' => $date
         );
 
         return $this->db->insert('posts', $data);
@@ -25,7 +26,7 @@ class PostsModel extends MasterModel
         $data = array(
             'author_id' => $authorID,
             'title' => $title,
-            'content' => $content
+            'content' => $content,
         );
 
         $this->db->where('id',$post['id']);

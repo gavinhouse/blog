@@ -7,7 +7,7 @@
         <h1>Add Post</h1>
 
         <?php echo validation_errors(); ?>
-        <?php echo form_open('posts/create'); ?>
+        <?php echo form_open_multipart('posts/create'); ?>
                 <dt>Title</dt>
                 <dd><input type = "text" name="title" value=<?php echo $title ?>></dd>
             </dl>

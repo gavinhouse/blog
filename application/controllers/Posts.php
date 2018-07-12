@@ -50,8 +50,9 @@ class Posts extends Father{
             $authorID = $_SESSION['username'];
             $title = $this->input->post('title');
             $content = $this->input->post('content');
+            $date = $this->formatDate(getdate());
 
-            $this->posts_model->addPost($authorID,$title,$content);
+            $this->posts_model->addPost($authorID,$title,$content, $date);
             $this->index('add');
         }
     }
@@ -96,5 +97,8 @@ class Posts extends Father{
             $this->posts_model->editPost($post, $authorID, $title, $content);
             $this->index('edit');
         }
+    }
+    private function formatDate($date){
+        return $date['month'] . ' ' . $date['mday'] . ', ' . $date['year'];
     }
 }
