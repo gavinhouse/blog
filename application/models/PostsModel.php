@@ -55,4 +55,8 @@ class PostsModel extends MasterModel
     public function getPosts(){
         return parent::getEntries(FALSE,'posts');
     }
+
+    public function getByAuthor($author){
+        return $this->db->get_where('posts', array('authorName' => $author))->result_array();
+    }
 }

@@ -11,6 +11,7 @@
  * @property CI_Input $input
  * @property Navigation $navigation
  * @property PostEntry $postentry
+ * @property CI_URI $uri
  */
 class Father extends CI_Controller{
 

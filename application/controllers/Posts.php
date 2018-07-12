@@ -1,6 +1,7 @@
 <?php
 /**
  * The Posts controller contains functions that maintain the posts section
+ *
  */
 require('Father.php');
 session_start();
@@ -10,10 +11,20 @@ class Posts extends Father{
     //Display post index page
     public function index($action = FALSE){
 
-        $this->layout->set('page_title','Post List');
-        $refinedPosts = $this->postentry->refinePosts($this->posts_model->getPosts());
+        $user = $this->uri->segment(3,FALSE);
+        if(!$user){
+            $refinedPosts = $this->postentry->refinePosts($this->posts_model->getPosts());
+            $this->layout->set('page_title','Post List');
+        }
+        else{
+            $refinedPosts = $this->postentry->refinePosts($this->posts_model->getByAuthor($user));
+            $this->layout->set('page_title', $user . "'s Posts");
+        }
+
         $this->layout->set('posts', $refinedPosts);
         $this->layout->set('action', $action);
+
+        parent::checkLogin();
 
         $this->layout->load('index','posts');
     }
@@ -32,6 +43,8 @@ class Posts extends Father{
     //Wrapper for validateCreation
     public function create(){
         $this->creationForm();
+
+        parent::checkLogin();
     }
 
     //wrapper for validateDeletion
