@@ -7,14 +7,15 @@ class PostsModel extends MasterModel
 {
 
     //Adds a post to the posts table
-    public function addPost($authorName, $title, $content, $date)
+    public function addPost($authorName, $title, $content, $date, $fileName)
     {
 
         $data = array(
             'authorName' => $authorName,
             'title' => $title,
             'content' => $content,
-            'date' => $date
+            'date' => $date,
+            'imageName' => $fileName
         );
 
         return $this->db->insert('posts', $data);

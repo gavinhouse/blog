@@ -52,8 +52,26 @@ class Posts extends Father{
             $content = $this->input->post('content');
             $date = $this->formatDate(getdate());
 
-            $this->posts_model->addPost($authorID,$title,$content, $date);
-            $this->index('add');
+            //This section is for file upload
+            $config['upload_path']          = './images/uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 100;
+            $config['max_width']            = 1024;
+            $config['max_height']           = 768;
+
+            $this->load->library('upload', $config);
+            $this->upload->do_upload();
+            $fileName = $this->upload->data('file_name');
+            //End file upload
+
+            if(!$this->posts_model->addPost($authorID,$title,$content, $date, $fileName))
+            {
+                echo $fileName;
+            }
+            else{
+                $this->index('add');
+            }
+
         }
     }
 
@@ -86,6 +104,8 @@ class Posts extends Father{
             $this->layout->set('page_title','Edit Post');
             $this->layout->set('post',$this->posts_model->getPost($id));
 
+            $this->load->library('upload', $config);
+
             $this->layout->load('edit','posts');
         }
         else{
@@ -98,7 +118,10 @@ class Posts extends Father{
             $this->index('edit');
         }
     }
+
     private function formatDate($date){
         return $date['month'] . ' ' . $date['mday'] . ', ' . $date['year'];
     }
+
+
 }
