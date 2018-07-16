@@ -9,8 +9,13 @@ class Home extends Father{
     //Displays home page
     public function index(){
 
-        $this->layout->set('page_title','Home Page');
-        $this->layout->load('index','home');
+        if(!isset($_SESSION['username'])){
+            $this->layout->set('page_title','Home Page');
+            $this->layout->load('index','home');
+        }
+        else{
+            header('Location: ' . site_url('posts/index'));
+        }
 
         $this->cleanUploads();
     }
