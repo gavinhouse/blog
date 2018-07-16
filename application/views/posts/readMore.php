@@ -1,6 +1,6 @@
 <div id="content">
 
-    <?php if($_SESSION['username'] == $post['authorName']){ ?>
+    <?php if($_SESSION['username'] == $post['authorName'] || $_SESSION['username'] == 'admin'){ ?>
         <a href="<?= site_url('posts/delete/' . $post['id'])?>">Delete Post</a>
         <br />
     <?php } ?>
