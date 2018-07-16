@@ -7,9 +7,9 @@
 <div id="content">
     <div class="post-listing" align="center" >
 
-        <div class="actions">
-            <a class="action" href="<?php echo site_url('posts/create'); ?>">Add New Post</a>
-        </div>
+        <form action="<?= site_url('posts/create')?>">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">     Create New Post     </button>
+        </form>
 
         <?php
         foreach ($posts as $post){
