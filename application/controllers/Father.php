@@ -3,7 +3,6 @@
  * Father class is parent to all controllers and is used to define properties and load modules.
  *
  * @property PostsModel $posts_model
- * @property AuthorsModel $authors_model
  * @property UsersModel $users_model
  * @property CI_Loader $load
  * @property  Layout $layout
@@ -19,7 +18,6 @@ class Father extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('PostsModel','posts_model');
-        $this->load->model('AuthorsModel','authors_model');
         $this->load->model('UsersModel', 'users_model');
         $this->load->helper('url_helper');
         $this->load->library('Layout');
