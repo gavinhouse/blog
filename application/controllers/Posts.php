@@ -119,8 +119,6 @@ class Posts extends Father{
             $this->layout->set('page_title','Edit Post');
             $this->layout->set('post',$this->posts_model->getPost($id));
 
-            $this->load->library('upload', $config);
-
             $this->layout->load('edit','posts');
         }
         else{
@@ -130,7 +128,7 @@ class Posts extends Father{
 
             $post = $this->posts_model->getPost($id);
             $this->posts_model->editPost($post, $authorID, $title, $content);
-            $this->index('edit');
+            header('Location: ' . site_url('posts/readMore/' . $post['id']));
         }
     }
 

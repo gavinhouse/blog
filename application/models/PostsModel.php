@@ -25,9 +25,11 @@ class PostsModel extends MasterModel
     public function editPost($post, $authorID, $title, $content)
     {
         $data = array(
-            'author_id' => $authorID,
+            'authorName' => $authorID,
             'title' => $title,
             'content' => $content,
+            'date' => $post['date'],
+            'imageName' => $post['imageName']
         );
 
         $this->db->where('id',$post['id']);
