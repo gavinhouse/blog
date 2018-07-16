@@ -1,5 +1,5 @@
-<div class="w3-card-4 w3-margin w3-white" align="left">
-    <img src="../../../images/uploads/<?= $imageName?>" alt="<?=$title?>" style="width:100%" height="320px">
+<div class="w3-card-4 w3-margin w3-white" align="left" style="width: 60%">
+    <img src="../../../images/uploads/<?= $imageName?>" alt="<?=$title?>" style="width:100%" >
     <div class="w3-container">
         <h3><b><?=$title?></b></h3>
         <h5><?=$author?>, <span class="w3-opacity"><?= $date ?></span></h5>
