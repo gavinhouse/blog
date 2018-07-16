@@ -1,9 +1,9 @@
 <div id="content">
-    <div class="users listing" style="padding-left: 30%; padding-right: 30%;">
+    <div class="users listing" style="text-align: center">
         <table class="table table-striped">
             <thead class="thead-dark">
             <tr>
-                <th>Username</th>
+                <th>Users</th>
                 <?php
                 if($_SESSION['username'] === 'admin'){
                     echo '<th> </th>';

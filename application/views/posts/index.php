@@ -8,7 +8,7 @@
     <div class="post-listing" align="center" >
 
         <form action="<?= site_url('posts/create')?>">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">     Create New Post     </button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create New Post</button>
         </form>
 
         <?php

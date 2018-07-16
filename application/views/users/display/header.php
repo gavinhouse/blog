@@ -12,6 +12,10 @@
 
 <style>
     #content {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
         background-color: #efcbbc;
     }
     div.footer {
