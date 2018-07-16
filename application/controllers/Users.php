@@ -50,17 +50,8 @@ class Users extends Father{
     //Function returns a boolean which states whether or not a given username exists
     private function usernameExists($username)
     {
-
         //Gets user with specified username. If it exists, return true.
-        if($this->users_model->getUser($username) != [])
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
-
+        return $this->users_model->getUser($username) != [];
     }
 
     //Creates a user

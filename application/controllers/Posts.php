@@ -103,7 +103,7 @@ class Posts extends Father{
         }
         else{
             $this->posts_model->deletePost($id);
-            $this->index('delete');
+            header('Location: ' . site_url('posts/index'));
         }
     }
 
@@ -145,5 +145,4 @@ class Posts extends Father{
         $this->upload->do_upload();
         return $this->upload->data('file_name');
     }
-
 }

@@ -38,5 +38,4 @@ class Father extends CI_Controller{
         }
     }
 
-
 }
