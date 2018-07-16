@@ -11,6 +11,7 @@
  * @property Navigation $navigation
  * @property PostEntry $postentry
  * @property CI_URI $urif
+ * @property Files $files
  */
 class Father extends CI_Controller{
 
@@ -25,6 +26,7 @@ class Father extends CI_Controller{
         $this->load->library('form_validation');
         $this->load->library('Navigation');
         $this->load->library('PostEntry');
+        $this->load->library('Files');
     }
 
     //Sets values in session to default states.

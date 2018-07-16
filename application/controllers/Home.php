@@ -16,20 +16,5 @@ class Home extends Father{
         else{
             header('Location: ' . site_url('posts/index'));
         }
-
-        $this->cleanUploads();
-    }
-
-    private function cleanUploads(){
-
-        $path = './images/uploads/';
-        $files = array_diff(scandir($path), array('.', '..'));
-
-        $this->load->helper("file");
-        foreach ($files as $file) {
-            if(!$this->users_model->getImage($file)){
-                unlink($path . $file);
-            }
-        }
     }
 }

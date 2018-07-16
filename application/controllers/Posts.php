@@ -77,7 +77,7 @@ class Posts extends Father{
             $content = $this->input->post('content');
             $date = $this->formatDate(getdate());
 
-            $fileName = $this->uploadFile();
+            $fileName = $this->files->uploadFile();
 
             if(!$this->posts_model->addPost($authorID,$title,$content, $date, $fileName))
             {
@@ -102,6 +102,8 @@ class Posts extends Father{
             $this->layout->load('delete','posts');
         }
         else{
+            $this->files->deleteImage($this->posts_model->getPost($id)['imageName']);
+
             $this->posts_model->deletePost($id);
             header('Location: ' . site_url('posts/index'));
         }
@@ -134,15 +136,5 @@ class Posts extends Father{
 
     private function formatDate($date){
         return $date['month'] . ' ' . $date['mday'] . ', ' . $date['year'];
-    }
-
-    private function uploadFile(){
-        $config['upload_path']          = './images/uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-
-
-        $this->load->library('upload', $config);
-        $this->upload->do_upload();
-        return $this->upload->data('file_name');
     }
 }
