@@ -1,5 +1,9 @@
 <div id="content" >
+    <div>
+        <img src="<?= base_url('images/blog.jpg') ?>">
+    </div>
     <div id="main-menu" align="center">
+        <br />
         <h1>Welcome to The Blogger's Digest!</h1>
         <br />
         <br />
