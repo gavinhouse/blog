@@ -2,12 +2,6 @@
 
 class Files{
 
-    public function __construct()
-    {
-        $this->CI =& get_instance();
-        $this->CI->load->helper("file");
-    }
-
     public function deleteImage($filename){
 
         $path = './images/uploads/';
