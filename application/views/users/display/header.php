@@ -16,6 +16,7 @@
         top: 30%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
+        width: 75%;
         background-color: #efcbbc;
     }
     div.footer {

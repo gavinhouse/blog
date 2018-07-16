@@ -4,6 +4,7 @@
             <thead class="thead-dark">
             <tr>
                 <th>Users</th>
+                <th> </th>
                 <?php
                 if($_SESSION['username'] === 'admin'){
                     echo '<th> </th>';
@@ -14,7 +15,8 @@
 
             <?php foreach($users as $user){ ?>
                 <tr>
-                    <td><a href="<?= site_url('/posts/index/' . $user['username'])?>"><?= $user['username']?></a></td>
+                    <td><?= $user['username']?></td>
+                    <td><a href="<?= site_url('/posts/index/' . $user['username'])?>">View Page</a></td>
                     <?php if($_SESSION['username'] === 'admin'){ ?>
                         <td><a class="action" href="<?php echo site_url('users/delete/'.$user['username']); ?>">Delete</a></td>
                     <?php } ?>
