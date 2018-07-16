@@ -41,6 +41,12 @@ class Users extends Father{
         $this->deletionForm($username);
     }
 
+    public function logout(){
+        session_unset();
+
+        header('Location:' . site_url('home/index'));
+    }
+
     //Function returns a boolean which states whether or not a given username exists
     private function usernameExists($username)
     {
