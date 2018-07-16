@@ -13,8 +13,6 @@ class Home extends Father{
         $this->layout->load('index','home');
 
         $this->cleanUploads();
-
-        //session_unset();
     }
 
     private function cleanUploads(){
@@ -24,7 +22,7 @@ class Home extends Father{
 
         $this->load->helper("file");
         foreach ($files as $file) {
-            if(!$this->db->get_where('posts', array('imageName' => $file))->result_array()){
+            if(!$this->users_model->getImage($file)){
                 unlink($path . $file);
             }
         }

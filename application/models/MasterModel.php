@@ -45,5 +45,8 @@ class MasterModel extends CI_Model{
         return $this->db->get_where($table, array('id' => $id))->row_array();
     }
 
+    public function getImage($filename){
+        return $this->db->get_where('posts', array('imageName' => $filename))->result_array();
+    }
 
 }
