@@ -11,7 +11,6 @@ class UsersModel extends MasterModel{
         $data = array(
             'username' => $username,
             'password' => password_hash($password, PASSWORD_DEFAULT),
-            'displayName' => $displayName
         );
 
         return $this->db->insert('users', $data);
