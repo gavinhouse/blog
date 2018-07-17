@@ -58,15 +58,14 @@ class Users extends Father{
     private function creationForm(){
 
         $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('displayName', 'Display Name', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('password_reenter', 'Password re-entry', 'required');
 
         if($this->form_validation->run() === FALSE){
 
             $this->layout->set('page_title','Create User');
-
-            $this->setSessionValuesToDefault(); //Resets the session values to default
+            $_SESSION['username_exists'] = FALSE;
+            $_SESSION['reenter_valid'] = TRUE;
 
             $this->layout->load('create','users');
         }
