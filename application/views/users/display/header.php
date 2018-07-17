@@ -13,7 +13,7 @@
 <style>
     #content {
         position: absolute;
-        top: 30%;
+        top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
         width: 75%;

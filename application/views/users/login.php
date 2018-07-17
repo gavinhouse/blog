@@ -2,7 +2,7 @@
 $password = '';
 ?>
 <div id="content" align="center">
-    <h4>Please enter the admin username and password.</h4>
+    <h4>Please enter your username and password.</h4>
 
     <div class="login">
 
