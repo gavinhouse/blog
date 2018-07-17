@@ -10,7 +10,7 @@
         <?php echo form_open_multipart('posts/create'); ?>
             <dl>
                 <dt>Title</dt>
-                <dd><input type = "text" name="title" value=<?php echo $title ?>></dd>
+                <dd><input type = "text" name="title" autocomplete="off" value=<?php echo $title ?>></dd>
             </dl>
             <dl>
                 <dt>Content</dt>
