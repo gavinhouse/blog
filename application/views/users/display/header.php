@@ -8,7 +8,7 @@
 <html lang="en" style="background-color: #efcbbc">
 
 <!-- Retrieve stylesheets and scripts -->
-<?php include('C:\Apache24\htdocs\frameworkPractise\application\views\shared\headerHead.php'); ?>
+<?php $this->load->view('shared/headerHead'); ?>
 
 <style>
     #content {
