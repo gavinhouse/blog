@@ -4,12 +4,12 @@ class Files{
 
     public function deleteImage($filename){
 
-        $path = './images/uploads/';
+        $path = FCPATH . '/images/uploads/';
         unlink($path . $filename);
     }
 
     public function uploadFile(){
-        $config['upload_path']          = './images/uploads/';
+        $config['upload_path']          = FCPATH . '/images/uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
 
         $this->CI =& get_instance();
